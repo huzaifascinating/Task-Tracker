@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Table, Checkbox, Button, Popconfirm, Tag, message, Modal, Form, Input } from "antd";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { DeleteOutlined, EditOutlined, InfoCircleOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "./store";
 import { toggleComplete, deleteTask, editTask, Task } from "./taskSlice";
@@ -101,7 +101,10 @@ const RenderTasks = () => {
 
   return (
     <div>
-      <h2 className="text-2xl mb-4 flex items-center font-semibold">Task List</h2>
+      <h2 className="text-2xl mb-4 flex items-center font-semibold">
+        <InfoCircleOutlined className="mr-2" />
+        Task List
+      </h2>
 
       <Table
         dataSource={tasks}

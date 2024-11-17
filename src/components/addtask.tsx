@@ -1,5 +1,5 @@
 import { Form, Input, Button, message } from "antd";
-import { PlusOutlined } from "@ant-design/icons";
+import { PlusOutlined, InfoCircleOutlined, FileTextOutlined, EditOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "./store";
 import { addTask } from "./taskSlice";
@@ -18,6 +18,7 @@ const AddTask = () => {
   return (
     <div>
       <h2 className="text-2xl mb-4 flex items-center font-semibold">
+        <InfoCircleOutlined className="mr-2" />
         Add a Task
       </h2>
 
@@ -29,7 +30,12 @@ const AddTask = () => {
       >
         <Form.Item
           name="title"
-          label={<span className="font-medium">Title</span>}
+          label={
+            <span className="font-medium flex items-center">
+              <FileTextOutlined className="mr-2 text-gray-500" />
+              Title
+            </span>
+          }
           rules={[{ required: true, message: "Please enter a task title" }]}
         >
           <Input
@@ -40,7 +46,12 @@ const AddTask = () => {
 
         <Form.Item
           name="description"
-          label={<span className="font-medium">Description</span>}
+          label={
+            <span className="font-medium flex items-center">
+              <EditOutlined className="mr-2 text-gray-500" />
+              Description
+            </span>
+          }
         >
           <Input.TextArea
             rows={4}
